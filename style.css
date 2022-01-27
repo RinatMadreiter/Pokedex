@@ -1,0 +1,256 @@
+/* #pokedex {
+    min-height: 50vh;
+    background-color: #FB6C6C;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+} */
+
+.info-container {
+    background-color: white;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    margin-top: -40px;
+    min-height: 100px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+.credits {
+    font-size: smaller;
+}
+
+.pokemon-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #FB6C6C;
+    width: 300px;
+    height: 220px;
+    border-radius: 28px;
+    margin: 6px;
+    background-image: url("./img/pokeball_background_65opacity.png");
+    background-size: 163px;
+    background-position: 92% 98%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.pokemon-card:hover {
+    filter: brightness(1.15);
+}
+
+.pokemon-id-number {
+    text-align: end;
+    font-weight: 800;
+    font-size: 27px;
+    opacity: 0.2;
+    padding-top: 5px;
+    padding-right: 28px;
+}
+
+.background-music {
+    width: 100px;
+    height: 50px0;
+}
+
+.pokemon-name {
+    font-weight: 700;
+    padding-left: 20px;
+    font-size: 25px;
+}
+
+.pokemon-img-type-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.pokemon-img {
+    height: 120px;
+    width: 120px;
+}
+
+.type-container {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+.pokemon-cards-container {
+    padding: 0 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.single-pokemon-view {
+    height: 100vh;
+    width: 98vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+}
+
+.gray-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.d-none {
+    display: none;
+    /* should be hidden if not finished */
+}
+
+.single-pokemoncard-view {
+    /* width: 33vw;
+    height: 75vh; */
+    height: 703px;
+    width: 341px;
+}
+
+.single-pokemon-upper-part {
+    background-image: url("./img/pokeball_background_65opacity.png");
+    background-size: 163px;
+    background-position: 95% 69%;
+    background-repeat: no-repeat;
+    background-color: #FB6C6C;
+    height: 50%;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+}
+
+.single-pokemon-upper-part img {
+    width: 200px;
+    height: 200px;
+}
+
+.info-container-lower-part {
+    background-color: white;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    ;
+    margin-top: -40px;
+    padding-bottom: 40px;
+    height: 50%;
+}
+
+.single-pokemoncard-view-name {
+    width: 80%;
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.single-pokemoncard-view-id {
+    width: 80%;
+    text-align: end;
+    font-weight: 800;
+    font-size: 27px;
+    opacity: 0.7;
+}
+
+.single-pokemoncard-view-type {
+    width: 80%;
+}
+
+.play-button {
+    cursor: pointer;
+    height: 35px;
+    width: 35px;
+    padding: 0px 5px;
+}
+
+.pause-button {
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    padding: 0px 5px; 
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 40px;
+}
+
+.animate-zoom-in {
+    animation-name: zoomin;
+    animation-duration: 500ms;
+}
+
+@keyframes zoomin {
+    0% {
+        transform: scale(0)
+    }
+    
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate-zoom-out {
+    animation-name: zoomout;
+    animation-duration: 500ms;
+}
+
+@keyframes zoomout {
+    0% {
+        transform: scale(1)
+    }
+    
+    100% {
+        transform: scale(0);
+    }
+}
+
+.top-div {
+    width: 67vw;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+
+.music-control {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid red;
+    border-radius: 8px;
+    height: 50px;
+    padding: 0 13px;
+}
+
+.music-control:hover {
+    background-color: rgba(27, 106, 143, 0.15);
+    transition: 65ms ease-in-out;
+}
+
+.logo {
+    width: 170px;
+}
