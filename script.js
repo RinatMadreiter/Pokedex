@@ -1,5 +1,11 @@
 let currentPokemon;
 let amountOfDigitsInID = 3;
+let clickedPokemonHp;
+let clickedPokemonAttack;
+let clickedPokemonDefense;
+let clickedPokemonSpecialattack;
+let clickedPokemonSpecialdefense;
+let clickedPokemonSpeed;
 let typeColors = [
     {
         "type": "Grass",
@@ -93,9 +99,9 @@ async function loadClickedPokemonAsJson(clickedPokemon) {
     let j = clickedPokemon;
     let url = `https://pokeapi.co/api/v2/pokemon/${j}`;
     let response = await fetch(url);
-    currentClickedPokemon = await response.json();
-    renderSinglePokemonUpperPart(currentClickedPokemon);
-    renderSinglePokemonLowerPart(currentClickedPokemon);
+    clickedPokemon = await response.json();
+    renderSinglePokemonUpperPart(clickedPokemon);
+    renderSinglePokemonLowerPart(clickedPokemon);
 }
 
 function renderSinglePokemonUpperPart(clickedPokemon) {
@@ -108,25 +114,26 @@ function renderSinglePokemonUpperPart(clickedPokemon) {
     capitalizeFLetterTypeSinglePokemon(clickedPokemon);
     renderSinglePokemonID(clickedPokemon);
     styleCardAccordingToTypeSingle();
-    
+
 }
 
 
-function renderSinglePokemonLowerPart(currentClickedPokemon) {
+function renderSinglePokemonLowerPart(clickedPokemon) {
     renderSinglePokemonStats(clickedPokemon);
 }
 
 function renderSinglePokemonStats(clickedPokemon) {
     createSinglePokemonStatsVariables(clickedPokemon)
+    // document.getElementById('hp').innerHTML = 
 }
 
 function createSinglePokemonStatsVariables(clickedPokemon) {
-    let currentPokemonHp = clickedPokemon['stats']['0']['base_stat'];
-    let currentPokemonAttack = clickedPokemon['stats']['1']['base_stat'];
-    let currentPokemonDefense = clickedPokemon['stats']['2']['base_stat'];
-    let currentPokemonSpecialattack = clickedPokemon['stats']['3']['base_stat'];
-    let currentPokemonSpecialdefense = clickedPokemon['stats']['4']['base_stat'];
-    let currentPokemonSpeed = clickedPokemon['stats']['5']['base_stat'];
+    clickedPokemonHp = clickedPokemon['stats']['0']['base_stat'];
+    clickedPokemonAttack = clickedPokemon['stats']['1']['base_stat'];
+    clickedPokemonDefense = clickedPokemon['stats']['2']['base_stat'];
+    clickedPokemonSpecialattack = clickedPokemon['stats']['3']['base_stat'];
+    clickedPokemonSpecialdefense = clickedPokemon['stats']['4']['base_stat'];
+    clickedPokemonSpeed = clickedPokemon['stats']['5']['base_stat'];
 }
 
 function displayKlickedPokemon(clickedPokemon) {

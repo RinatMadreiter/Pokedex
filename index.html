@@ -9,6 +9,7 @@
     <link rel="icon" type="image/x-icon" href="./img/pokeball.ico">
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js"></script>
+    <script src="./stats_chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -34,7 +35,13 @@
                 <div class="single-pokemoncard-view-type" id="single-pokemoncard-view-type">Electro</div>
                 <img src="./img/test.svg" id="single-pokemoncard-view-img">
             </div>
-            <div class="info-container-lower-part"></div>
+            <div class="info-container-lower-part" onload="renderChart()">
+                hp: "<span id="hp"></span>"
+                <div id="chart">
+                    Canvasdiv
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
         </div>
     </div>
     <div id="grayOverlayContainer">
@@ -51,8 +58,8 @@
 
         <div class="pokemon-cards-container" id="pokemon-cards-container"></div>
     </div>
- 
- 
+
+
 
 
     <footer>
