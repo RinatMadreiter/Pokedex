@@ -124,7 +124,7 @@ function renderSinglePokemonLowerPart(clickedPokemon) {
 
 function renderSinglePokemonStats(clickedPokemon) {
     createSinglePokemonStatsVariables(clickedPokemon)
-    // document.getElementById('hp').innerHTML = 
+    document.getElementById('hp').innerHTML = clickedPokemonHp;
 }
 
 function createSinglePokemonStatsVariables(clickedPokemon) {
@@ -154,6 +154,15 @@ function hideSinglePokemonView() {
 }
 
 
+function addBaseStatsToChart() {
+    console.log('addBaseStatsToChart worked');
+    data.datasets[0].data[0] = clickedPokemonHp;
+    data.datasets[0].data[1] = clickedPokemonAttack;
+    data.datasets[0].data[2] = clickedPokemonDefense;
+    data.datasets[0].data[3] = clickedPokemonSpecialattack;
+    data.datasets[0].data[4] = clickedPokemonSpecialdefense;
+    data.datasets[0].data[5] = clickedPokemonSpeed;
+}
 
 function createPokemonCardHTML(currentNumber) {
     let pokemonCardsContainer = document.getElementById('pokemon-cards-container');

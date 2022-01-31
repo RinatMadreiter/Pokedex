@@ -38,9 +38,10 @@ const data = {
   };
 
 
-  function renderChart() {
-    const myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-      );
-  }
+//   function renderChart() {
+//       console.log('chartrenderfunction')
+//     const myChart = new Chart(
+//         document.getElementById('myChart'),
+//         config
+//       );
+//   }

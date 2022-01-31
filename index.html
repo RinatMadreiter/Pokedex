@@ -35,7 +35,7 @@
                 <div class="single-pokemoncard-view-type" id="single-pokemoncard-view-type">Electro</div>
                 <img src="./img/test.svg" id="single-pokemoncard-view-img">
             </div>
-            <div class="info-container-lower-part" onload="renderChart()">
+            <div class="info-container-lower-part" >
                 hp: "<span id="hp"></span>"
                 <div id="chart">
                     Canvasdiv
@@ -72,6 +72,16 @@
 
     </footer>
 </body>
+
+<script>
+    function renderChart() {
+        console.log('chartrenderfunction')
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+      );
+  }
+</script>
 
 
 
