@@ -264,3 +264,7 @@ header {
 #chart {
     position: relative;
 }
+
+/* img {
+    loading: lazy;
+} */

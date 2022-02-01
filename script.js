@@ -1,3 +1,6 @@
+/**
+ * define variables and typecolors
+ */
 let currentPokemon;
 let amountOfDigitsInID = 3;
 let clickedPokemonHp;
@@ -69,6 +72,7 @@ let typeColors = [
     }
 ]
 
+
 /**
  * define variables: audios
  * lower the volume of all audios to 30%
@@ -93,6 +97,12 @@ async function loadPokemon() {
         styleCardAccordingToType(i);
     }
 }
+
+function lazyLoading() {
+    if (document.body.scrollTop > 700 || document.documentElement.scrollTop > 350) {
+      document.getElementById("myImg").className = "slideUp";
+    }
+  }
 
 
 async function loadClickedPokemonAsJson(clickedPokemon) {
