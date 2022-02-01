@@ -100,9 +100,12 @@ async function loadPokemon() {
         updateID(i, currentID);
         styleCardAccordingToType(i);
     }
-} 
+}
+
+
 
 function lazyLoading() {
+    
     console.log('lazyLoad Function called\n' + 'i=' + i)
     if (document.documentElement.scrollTop > scrollAmountTrigger) {
         let currentBodyHeight = document.body.scrollHeight;
