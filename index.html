@@ -7,10 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
     <link rel="icon" type="image/x-icon" href="./img/pokeball.ico">
-    <link rel="stylesheet" href="./style.css">
-    <script src="./script.js"></script>
-    <script src="./stats_chart.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./stats_chart.js"></script>
+    <script src="./script.js"></script>
+    <link rel="stylesheet" href="./style.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -21,7 +23,7 @@
 </head>
 
 
-<body onload="loadPokemon(); renderChart()">
+<body onload="loadPokemon()">
 
     <!--  this div is shown if you click on a single pokemon -->
     <div class="single-pokemon-view d-none" id="single-pokemon-view" onclick="closeClickedPokemon()">
@@ -37,9 +39,7 @@
                 <img src="./img/test.svg" id="single-pokemoncard-view-img">
             </div>
             <div class="info-container-lower-part">
-                hp: "<span id="hp"></span>"
                 <div id="chart">
-                    Canvasdiv
                     <canvas id="myChart"></canvas>
                 </div>
             </div>
@@ -74,15 +74,19 @@
     </footer>
 </body>
 
-<!-- <script>
-    function renderChart() {
-        console.log('chartrenderfunction')
-        const myChart = new Chart(
-            document.getElementById('myChart'),
-            config
-        );
-    }
-</script> -->
+<script>
+
+function renderChart() {
+    console.log('renderChartfunction')
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config);
+}
+
+const myChart = new Chart(
+    document.getElementById('myChart'),
+    config);
+</script>
 
 
 

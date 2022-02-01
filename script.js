@@ -69,6 +69,45 @@ let typeColors = [
     }
 ]
 
+/* const data = {
+    labels: [
+        'HP',
+        'Attack',
+        'Defense',
+        'Special-Attack',
+        'Special-Defense',
+        'Speed'
+    ],
+    datasets: [{
+        label: 'Base-Stats',
+        data: [65, 59, 90, 56, 55, 40],
+        fill: true,
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgb(255, 99, 132)',
+        pointBackgroundColor: 'rgb(255, 99, 132)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgb(255, 99, 132)',
+        //von hier von mir hinzugefügt zum rumspielen
+        //   radius: '6'
+    }]
+};
+
+const config = {
+    type: 'radar',
+    data: data,
+    options: {
+        elements: {
+            line: {
+                borderWidth: 3
+            },
+            point: {
+                radius: 6
+            }
+        }
+    },
+};
+ */
 /**
  * define variables: audios
  * lower the volume of all audios to 30%
@@ -78,7 +117,7 @@ audioTheme.volume = 0.05;
 
 async function loadPokemon() {
     let i = 1;
-    for (i = 1; i <= 30; i++) {
+    for (i = 1; i <= 20; i++) {
 
         let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         let response = await fetch(url);
@@ -123,11 +162,12 @@ function renderSinglePokemonLowerPart(clickedPokemon) {
 }
 
 function renderSinglePokemonStats(clickedPokemon) {
-    createSinglePokemonStatsVariables(clickedPokemon)
-    document.getElementById('hp').innerHTML = clickedPokemonHp;
+    loadSinglePokemonStatsVariables(clickedPokemon)
+    addBaseStatsToChart();
+    myChart.update();
 }
 
-function createSinglePokemonStatsVariables(clickedPokemon) {
+function loadSinglePokemonStatsVariables(clickedPokemon) {
     clickedPokemonHp = clickedPokemon['stats']['0']['base_stat'];
     clickedPokemonAttack = clickedPokemon['stats']['1']['base_stat'];
     clickedPokemonDefense = clickedPokemon['stats']['2']['base_stat'];
@@ -149,9 +189,13 @@ function closeClickedPokemon() {
     setTimeout(hideSinglePokemonView, 480);
 }
 
+
+
 function hideSinglePokemonView() {
     document.getElementById('single-pokemon-view').classList.add('d-none');
 }
+
+
 
 
 function addBaseStatsToChart() {
@@ -162,6 +206,7 @@ function addBaseStatsToChart() {
     data.datasets[0].data[3] = clickedPokemonSpecialattack;
     data.datasets[0].data[4] = clickedPokemonSpecialdefense;
     data.datasets[0].data[5] = clickedPokemonSpeed;
+    // myChart.update();
 }
 
 function createPokemonCardHTML(currentNumber) {
@@ -272,6 +317,17 @@ function playTheme() {
 function stopTheme() {
     audioTheme.pause();
 }
+
+
+
+
+
+/* function renderChart() {
+    console.log('renderChartfunction')
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config);
+} */
 
 /**
  * todo: first letter pokemonName uppercase, helpful tutorial> https://www.geeksforgeeks.org/how-to-make-first-letter-of-a-string-uppercase-in-javascript/

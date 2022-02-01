@@ -254,3 +254,13 @@ header {
 .logo {
     width: 170px;
 }
+
+#myChart {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+}
+
+#chart {
+    position: relative;
+}
