@@ -23,7 +23,7 @@
 </head>
 
 
-<body onload="loadPokemon()">
+<body onload="loadPokemon()" onscroll="lazyLoading()"> 
 
     <!--  this div is shown if you click on a single pokemon -->
     <div class="single-pokemon-view d-none" id="single-pokemon-view" onclick="closeClickedPokemon()">
@@ -40,7 +40,7 @@
             </div>
             <div class="info-container-lower-part">
                 <div id="chart">
-                    <canvas id="myChart"></canvas>
+                    <canvas id="myChart"></canvas> 
                 </div>
             </div>
         </div>
@@ -57,7 +57,7 @@
             </div>
         </header>
 
-        <div class="pokemon-cards-container" id="pokemon-cards-container"></div>
+        <div class="pokemon-cards-container" id="pokemon-cards-container" ></div>
     </div>
 
 

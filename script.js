@@ -71,6 +71,10 @@ let typeColors = [
         "color": "#f9be00d6"
     }
 ]
+let i = 1;
+let iPlus20 = (i + 20);
+let scrollAmountTrigger = 800;
+
 
 
 /**
@@ -81,8 +85,8 @@ let audioTheme = new Audio('./sounds/themesong.mp3');
 audioTheme.volume = 0.05;
 
 async function loadPokemon() {
-    let i = 1;
-    for (i = 1; i <= 20; i++) {
+    
+    for (; i <= iPlus20; i++) {
 
         let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         let response = await fetch(url);
@@ -96,11 +100,17 @@ async function loadPokemon() {
         updateID(i, currentID);
         styleCardAccordingToType(i);
     }
-}
+} 
 
 function lazyLoading() {
-    if (document.body.scrollTop > 700 || document.documentElement.scrollTop > 350) {
-      document.getElementById("myImg").className = "slideUp";
+    console.log('lazyLoad Function called\n' + 'i=' + i)
+    if (document.documentElement.scrollTop > scrollAmountTrigger) {
+        let currentBodyHeight = document.body.scrollHeight;
+        scrollAmountTrigger = currentBodyHeight + 600;
+        iPlus20 += 20;
+        loadPokemon();
+        console.log('scrollAmountTrigger is:' + scrollAmountTrigger);
+        console.log(document.documentElement.scrollTop);
     }
   }
 
