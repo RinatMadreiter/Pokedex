@@ -40,23 +40,4 @@ const config = {
 };
 
 
-/* function renderChart() {
-  console.log('renderChartfunction')
-  const myChart = new Chart(
-    document.getElementById('myChart'),
-    config);
-} */
-
-
-/* function destroyOldChart() {
-  if (myChart instanceof Chart) {
-      myChart.destroy();
-      console.log('chart destroyed')
-    };
-} */
-
-/* if (myChart instanceof Chart) {
-  myChart.destroy();
-  console.log('chart destroyed')
-} */
 
