@@ -1,4 +1,4 @@
-@media (min-width: 600px) and (max-width: 700px) {
+@media (min-width: 599px) and (max-width: 700px) {
 
 
     .logo {
@@ -17,27 +17,75 @@
 
     .single-pokemon-upper-part {
 
-        height: 40vh;
+        height: 44vh;
     }
 
     .info-container-lower-part {
-        height: 60vh;
+        height: 56vh;
     }
 
     #myChart {
-        height: 59vh !important;
+        height: 55vh !important;
         width: auto !important;
-        right: 19vw;
+        right: 21vw;
         top: 49px;
     }
+
+    
+
+.single-pokemoncard-view-name {
+    text-align: center;
+}
 
 }
 
 
 @media (min-width: 500px) and (max-width: 599px) {
     #myChart {
-        right: 12vw;
+        right: 14vw;
         height: 59vh !important;
+        width: auto !important;
+        top: 36px;
+    }
+
+    .logo {
+        display: none;
+    }
+
+
+    .music-control div {
+        display: none;
+    }
+
+    .single-pokemoncard-view {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .single-pokemon-upper-part {
+
+        height: 44vh;
+    }
+
+    .info-container-lower-part {
+        height: 56vh;
+    }
+}
+
+@media (min-width: 400px) and (max-width: 500px) {
+
+    #searchField { 
+        width: 30vw;
+    }
+
+    .music-control {
+        width: 20vw;
+    }
+
+    #myChart {
+        right: 11vw;
+        top: 34px;
+        height: 51vh !important;
         width: auto !important;
     }
 
@@ -57,15 +105,15 @@
 
     .single-pokemon-upper-part {
 
-        height: 40vh;
+        height: 52vh;
     }
 
     .info-container-lower-part {
-        height: 60vh;
+        height: 48vh;
     }
 }
 
-@media (max-width: 499px) {
+@media (min-width: 340px) and (max-width: 400px) {
 
     #searchField { 
         width: 30vw;
@@ -78,6 +126,8 @@
     #myChart {
         right: 4vw;
         top: 34px;
+        height: 48vh !important;
+        width: auto !important;
     }
 
     .logo {
@@ -96,10 +146,95 @@
 
     .single-pokemon-upper-part {
 
-        height: 40vh;
+        height: 52vh;
     }
 
     .info-container-lower-part {
-        height: 60vh;
+        height: 48vh;
+    }
+}
+
+
+
+@media (min-width: 300px) and (max-width: 340px) {
+
+    #searchField { 
+        width: 30vw;
+    }
+
+    .music-control {
+        width: 20vw;
+    }
+
+    #myChart {
+        right: 2vw;
+        top: 34px;
+        height: 45vh !important;
+        width: auto !important;
+    }
+
+    .logo {
+        display: none;
+    }
+
+
+    .music-control div {
+        display: none;
+    }
+
+    .single-pokemoncard-view {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .single-pokemon-upper-part {
+
+        height: 52vh;
+    }
+
+    .info-container-lower-part {
+        height: 48vh;
+    }
+}
+
+
+@media (min-width: 0px) and (max-width: 300px) {
+
+    #searchField { 
+        width: 30vw;
+    }
+
+    .music-control {
+        width: 20vw;
+    }
+
+    #myChart {
+        right: 2vw;
+        top: 34px;
+        height: 40vh !important;
+        width: auto !important;
+    }
+
+    .logo {
+        display: none;
+    }
+
+
+    .music-control div {
+        display: none;
+    }
+
+    .single-pokemoncard-view {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .single-pokemon-upper-part {
+
+        height: 52vh;
+    }
+
+    .info-container-lower-part {
+        height: 48vh;
     }
 }
