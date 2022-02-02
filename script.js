@@ -79,33 +79,44 @@ let scrollAmountTrigger = 800;
 
 /**
  * define variables: audios
- * lower the volume of all audios to 30%
+ * lower the volume of all audios to 10%
  */
 let audioTheme = new Audio('./sounds/themesong.mp3');
-audioTheme.volume = 0.05;
+audioTheme.volume = 0.1;
 
+
+/**
+ * Load 21 Pokemon, render and style them
+ */
 async function loadPokemon() {
-    
-    for (; i <= iPlus20; i++) {
 
+    for (; i <= iPlus20; i++) {
         let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         let response = await fetch(url);
         currentPokemon = await response.json(); //response as JSON
-        createPokemonCardHTML(i);
-        renderPokemonInfo(i, currentPokemon);
-        capitalizeFLetterName(i, currentPokemon);
+        renderAllPokemon(i, currentPokemon);
+        styleAllPokemon(i, currentPokemon);
+    }
+}
+
+function renderAllPokemon(i, currentPokemon) {
+    createPokemonCardHTML(i);
+    renderPokemonInfo(i, currentPokemon);
+}
+
+function styleAllPokemon(i, currentPokemon) {
+    capitalizeFLetterName(i, currentPokemon);
         capitalizeFLetterType(i, currentPokemon);
         let currentID = currentPokemon['id'];
         addLeadingZerosToID(currentID, amountOfDigitsInID)
         updateID(i, currentID);
         styleCardAccordingToType(i);
-    }
 }
 
 
 
 function lazyLoading() {
-    
+
     console.log('lazyLoad Function called\n' + 'i=' + i)
     if (document.documentElement.scrollTop > scrollAmountTrigger) {
         let currentBodyHeight = document.body.scrollHeight;
@@ -115,7 +126,7 @@ function lazyLoading() {
         console.log('scrollAmountTrigger is:' + scrollAmountTrigger);
         console.log(document.documentElement.scrollTop);
     }
-  }
+}
 
 
 async function loadClickedPokemonAsJson(clickedPokemon) {
