@@ -11,7 +11,7 @@ let clickedPokemonSpecialdefense;
 let clickedPokemonSpeed;
 let i = 1;
 let iPlus20 = (i + 20);
-let scrollAmountTrigger = 50;
+let scrollAmountTrigger = 100;
 let amountsOfAllPokemons = 151;
 let allPokemonNames = [];
 let typedSearch;
@@ -180,7 +180,7 @@ function lazyLoading() {
     console.log('lazyLoad Function called\n' + 'i=' + i)
     if (document.documentElement.scrollTop > scrollAmountTrigger) {
         let currentBodyHeight = document.body.scrollHeight;
-        scrollAmountTrigger = currentBodyHeight;
+        scrollAmountTrigger = currentBodyHeight - 200;
         iPlus20 += 20;
         loadPokemon();
         console.log('scrollAmountTrigger is:' + scrollAmountTrigger);
