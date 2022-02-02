@@ -12,6 +12,7 @@
     <script src="./stats_chart.js"></script>
     <script src="./script.js"></script>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./mediaQueries.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +24,7 @@
 </head>
 
 
-<body onload="loadPokemon()" onscroll="lazyLoading()" > <!-- onscroll="lazyLoading()" -->
+<body onload="loadPokemon(); loadSaveAllPokemonNames()" onscroll="lazyLoading()" > <!-- onscroll="lazyLoading()" -->
 
     <!--  this div is shown if you click on a single pokemon -->
     <div class="single-pokemon-view d-none" id="single-pokemon-view" onclick="closeClickedPokemon()">
@@ -48,8 +49,7 @@
     <div id="grayOverlayContainer">
         <header>
             <img src="./img/logo.png" class="logo" >
-            <!-- <h1 class="heading">Pokedex</h1> -->
-            <input type="text" placeholder="Pokemon suchen ...">
+            <input type="text" placeholder="Pokemon suchen ..." id="searchField" onkeydown="search()">
             <div class="music-control">
                 <div>Theme Music</div>
                 <img class="play-button" src="./img/playbtn.png" onclick="playTheme()">

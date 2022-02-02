@@ -265,6 +265,16 @@ header {
     position: relative;
 }
 
+#searchField {
+    border-radius: 8px;
+    border-color: lightblue;
+    padding: 10px;
+}
+
+#searchField:hover {
+    border-color: rgb(98, 134, 202);
+}
+
 /* img {
     loading: lazy;
 } */

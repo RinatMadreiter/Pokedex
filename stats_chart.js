@@ -19,6 +19,7 @@ const data = {
     pointBorderColor: '#fff',
     pointHoverBackgroundColor: '#fff',
     pointHoverBorderColor: 'rgb(255, 99, 132)',
+    font: '20',
     animations: {
       y: {
         duration: 1000,
@@ -38,21 +39,37 @@ const config = {
   type: 'radar',
   data: data,
   options: {
-/*     scales: {
-      r: {
-          suggestedMin: 0,
-          suggestedMax: 250
-      }
-  }, */
     elements: {
       line: {
         borderWidth: 3
       },
       point: {
         radius: 4
+      },
+      font: {
+        size: 20
+      }
+    },
+    plugins: {
+      legend: {
+        labels: {
+          // This more specific font property overrides the global property
+          font: {
+            size: 15
+          }
+        }
+      }
+    },
+    scales: {
+      r: {
+        pointLabels: {
+          font: {
+            size: 12
+          }
+        }
       }
     }
-  },
+  }
 };
 
 
