@@ -9,6 +9,16 @@ let clickedPokemonDefense;
 let clickedPokemonSpecialattack;
 let clickedPokemonSpecialdefense;
 let clickedPokemonSpeed;
+let i = 1;
+let iPlus20 = (i + 20);
+let scrollAmountTrigger = 200;
+let amountsOfAllPokemons = 151;
+let allPokemonNames = [];
+let typedSearch;
+let searchNamesArray = [];
+/**
+ * JSON variable which stores all colors for type-specific background color change of pokemons
+ */
 let typeColors = [
     {
         "type": "Grass",
@@ -71,15 +81,6 @@ let typeColors = [
         "color": "#f9be00d6"
     }
 ]
-let i = 1;
-let iPlus20 = (i + 20);
-let scrollAmountTrigger = 800;
-let amountsOfAllPokemons = 151;
-let allPokemonNames = [];
-let typedSearch;
-let searchNamesArray = [];
-
-
 
 
 /**
@@ -88,6 +89,7 @@ let searchNamesArray = [];
  */
 let audioTheme = new Audio('./sounds/themesong.mp3');
 audioTheme.volume = 0.1;
+
 
 
 /**
@@ -104,7 +106,9 @@ async function loadPokemon() {
     }
 }
 
-
+/**
+ * load 151 Pokemon Names ans save in  Array: "allPokemonNames"
+ */
 async function loadSaveAllPokemonNames() {
     for (k = 1; k <= amountsOfAllPokemons; k++) {
         let urlNames = `https://pokeapi.co/api/v2/pokemon/${k}`;
@@ -115,19 +119,22 @@ async function loadSaveAllPokemonNames() {
 }
 
 
-function search() {
+/**
+ * prototype search-function in development
+ * todo: needs to be implemented and updated
+ */
+/* function search() {
     typedSearch = document.getElementById('searchField').value.toLowerCase();
     console.log('typedSearch is: ' + typedSearch);
     for (let index = 0; index < allPokemonNames.length; index++) {
         if (allPokemonNames[index].includes(typedSearch, index)) {
-            searchNamesArray.push(allPokemonNames[index])
-            /* if (!searchNamesArray.includes(allPokemonNames[index])) {
-                
-            } */
+            if (!searchNamesArray.includes(allPokemonNames[index])) {
+                searchNamesArray.push(allPokemonNames[index])
+            }
         }
     }
     console.log('searchNamesArray is: ' + searchNamesArray);
-}
+} */
 
 
 /* function checkIfIncluded(namesMatchingToSearch) {
@@ -137,12 +144,25 @@ function search() {
 }
  */
 
+
+/**
+ * render all Pokemon cards
+ * 1) create HTML cards
+ * 2) render API data of pokemons
+ * @param {*} i 
+ * @param {*} currentPokemon 
+ */
 function renderAllPokemon(i, currentPokemon) {
     createPokemonCardHTML(i);
     renderPokemonInfo(i, currentPokemon);
 }
 
 
+/**
+ * style all Pokemoncards
+ * @param {*} i 
+ * @param {*} currentPokemon 
+ */
 function styleAllPokemon(i, currentPokemon) {
     capitalizeFLetterName(i, currentPokemon);
     capitalizeFLetterType(i, currentPokemon);
@@ -153,13 +173,15 @@ function styleAllPokemon(i, currentPokemon) {
 }
 
 
-
+/**
+ * lazy load and render 21 Pokemons at "onscroll"
+ */
 function lazyLoading() {
 
     console.log('lazyLoad Function called\n' + 'i=' + i)
     if (document.documentElement.scrollTop > scrollAmountTrigger) {
         let currentBodyHeight = document.body.scrollHeight;
-        scrollAmountTrigger = currentBodyHeight + 600;
+        scrollAmountTrigger = currentBodyHeight;
         iPlus20 += 20;
         loadPokemon();
         console.log('scrollAmountTrigger is:' + scrollAmountTrigger);
@@ -168,6 +190,10 @@ function lazyLoading() {
 }
 
 
+/**
+ * load clicked Pokemon-Card from API and render it
+ * @param {*} clickedPokemon 
+ */
 async function loadClickedPokemonAsJson(clickedPokemon) {
     let j = clickedPokemon;
     let url = `https://pokeapi.co/api/v2/pokemon/${j}`;
@@ -178,6 +204,10 @@ async function loadClickedPokemonAsJson(clickedPokemon) {
 }
 
 
+/**
+ * render clicked Pokemons upper Part
+ * @param {*} clickedPokemon 
+ */
 function renderSinglePokemonUpperPart(clickedPokemon) {
     let currentPokemonImg = clickedPokemon['sprites']['other']['dream_world']['front_default'];
     document.getElementById(`single-pokemoncard-view-img`).src = currentPokemonImg;
@@ -191,11 +221,19 @@ function renderSinglePokemonUpperPart(clickedPokemon) {
 }
 
 
+/**
+ * render clicked Pokemons lower part
+ * @param {*} clickedPokemon 
+ */
 function renderSinglePokemonLowerPart(clickedPokemon) {
     renderSinglePokemonStats(clickedPokemon);
 }
 
 
+/**
+ * render clicked Pokemon's base-stats
+ * @param {*} clickedPokemon 
+ */
 function renderSinglePokemonStats(clickedPokemon) {
     loadSinglePokemonStatsVariables(clickedPokemon)
     addBaseStatsToChart();
@@ -203,6 +241,10 @@ function renderSinglePokemonStats(clickedPokemon) {
 }
 
 
+/**
+ * load clicked Pokemon's base-stats
+ * @param {*} clickedPokemon 
+ */
 function loadSinglePokemonStatsVariables(clickedPokemon) {
     clickedPokemonHp = clickedPokemon['stats']['0']['base_stat'];
     clickedPokemonAttack = clickedPokemon['stats']['1']['base_stat'];
@@ -213,6 +255,10 @@ function loadSinglePokemonStatsVariables(clickedPokemon) {
 }
 
 
+/**
+ * animate Pokemon when clicked to preview
+ * @param {*} clickedPokemon 
+ */
 function displayKlickedPokemon(clickedPokemon) {
     loadClickedPokemonAsJson(clickedPokemon);
     document.getElementById('single-pokemon-view').classList.remove('d-none');
@@ -221,6 +267,9 @@ function displayKlickedPokemon(clickedPokemon) {
 }
 
 
+/**
+ * animate Pokemon when clicked to close
+ */
 function closeClickedPokemon() {
     document.getElementById('single-pokemoncard-view').classList.remove('animate-zoom-in');
     document.getElementById('single-pokemoncard-view').classList.add('animate-zoom-out');
@@ -228,22 +277,31 @@ function closeClickedPokemon() {
 }
 
 
+/**
+ * hide clicked Pokemon when closing
+ */
 function hideSinglePokemonView() {
     document.getElementById('single-pokemon-view').classList.add('d-none');
 }
 
 
+/**
+ * save "Base-Stats" Data from API in variables
+ */
 function addBaseStatsToChart() {
-    console.log('addBaseStatsToChart worked');
     data.datasets[0].data[0] = clickedPokemonHp;
     data.datasets[0].data[1] = clickedPokemonAttack;
     data.datasets[0].data[2] = clickedPokemonDefense;
     data.datasets[0].data[3] = clickedPokemonSpecialattack;
     data.datasets[0].data[4] = clickedPokemonSpecialdefense;
     data.datasets[0].data[5] = clickedPokemonSpeed;
-    // myChart.update();
 }
 
+
+/**
+ * render HTML for all Pokemon cards for overview
+ * @param {*} currentNumber 
+ */
 function createPokemonCardHTML(currentNumber) {
     let pokemonCardsContainer = document.getElementById('pokemon-cards-container');
     pokemonCardsContainer.innerHTML += `
@@ -262,6 +320,11 @@ function createPokemonCardHTML(currentNumber) {
 }
 
 
+/**
+ * render API-Data from all pokemon cards 
+ * @param {*} currentNumber 
+ * @param {*} currentPokemon 
+ */
 function renderPokemonInfo(currentNumber, currentPokemon) {
     let currentPokemonImg = currentPokemon['sprites']['other']['dream_world']['front_default'];
     document.getElementById(`pokemonMainImg${currentNumber}`).src = currentPokemonImg;
@@ -271,6 +334,10 @@ function renderPokemonInfo(currentNumber, currentPokemon) {
 }
 
 
+/**
+ * style all pokemon according to their type
+ * @param {*} currentNumber 
+ */
 function styleCardAccordingToType(currentNumber) {
     let currentType = document.getElementById(`type${currentNumber}`);
     let currentPokemonCard = document.getElementById(`pokemon-card${currentNumber}`);
@@ -281,6 +348,10 @@ function styleCardAccordingToType(currentNumber) {
     }
 }
 
+
+/**
+ * style clicked Pokemon according to its type
+ */
 function styleCardAccordingToTypeSingle() {
     let currentType = document.getElementById(`single-pokemoncard-view-type`);
     let clickedPokemonUpperPart = document.getElementById(`single-pokemon-upper-part`);
@@ -292,6 +363,11 @@ function styleCardAccordingToTypeSingle() {
 }
 
 
+/**
+ * capitalize first letter of all pokemons name
+ * @param {*} currentNumber 
+ * @param {*} currentPokemon 
+ */
 function capitalizeFLetterName(currentNumber, currentPokemon) {
     let input = document.getElementById(`pokemonName${currentNumber}`);
     let string = currentPokemon['name'];
@@ -299,6 +375,11 @@ function capitalizeFLetterName(currentNumber, currentPokemon) {
         string.slice(1);
 }
 
+
+/**
+ * capitalize first letter of clicked pokemons name
+ * @param {*} clickedPokemon 
+ */
 function capitalizeFLetterNameSinglePokemon(clickedPokemon) {
     let input = document.getElementById(`single-pokemoncard-view-name`);
     let string = clickedPokemon['name'];
@@ -306,6 +387,12 @@ function capitalizeFLetterNameSinglePokemon(clickedPokemon) {
         string.slice(1);
 }
 
+
+/**
+ * capitalize first letter of all pokemons type
+ * @param {*} currentNumber 
+ * @param {*} currentPokemon 
+ */
 function capitalizeFLetterType(currentNumber, currentPokemon) {
     let input = document.getElementById(`type${currentNumber}`);
     let string = currentPokemon['types'][0]['type']['name'];
@@ -314,6 +401,11 @@ function capitalizeFLetterType(currentNumber, currentPokemon) {
 }
 
 
+/**
+ * capitalize first letter of clicked pokemons type
+ * @param {*} currentNumber 
+ * @param {*} currentPokemon 
+ */
 function capitalizeFLetterTypeSinglePokemon(clickedPokemon) {
     let input = document.getElementById(`single-pokemoncard-view-type`);
     let string = clickedPokemon['types'][0]['type']['name'];
@@ -321,17 +413,34 @@ function capitalizeFLetterTypeSinglePokemon(clickedPokemon) {
         string.slice(1);
 }
 
+
+/**
+ * update all pokemons ID to display  leading zeros
+ * @param {*} currentNumber 
+ * @param {*} currentID 
+ */
 function updateID(currentNumber, currentID) {
     let updatedID = addLeadingZerosToID(currentID, amountOfDigitsInID);
     document.getElementById(`pokemon-id${currentNumber}`).innerHTML = `#${updatedID}`;
 }
 
 
+/**
+ * update clicked pokemons id to display  leading zeros
+ * @param {*} SinglecurrentID 
+ */
 function updateSingleID(SinglecurrentID) {
     let updatedID = addLeadingZerosToID(SinglecurrentID, amountOfDigitsInID);
     document.getElementById(`single-pokemoncard-view-id`).innerHTML = `#${updatedID}`;
 }
 
+
+/**
+ * add leading zeros to id number
+ * @param {*} num 
+ * @param {*} size 
+ * @returns 
+ */
 function addLeadingZerosToID(num, size) {
     num = num.toString();
     while (num.length < size) num = "0" + num;
@@ -339,21 +448,31 @@ function addLeadingZerosToID(num, size) {
 }
 
 
+/**
+ * render clicked pokemons id to display  leading zeros
+ * @param {*} clickedPokemon 
+ */
 function renderSinglePokemonID(clickedPokemon) {
     let SinglecurrentID = clickedPokemon['id'];
     addLeadingZerosToID(SinglecurrentID, amountOfDigitsInID)
     updateSingleID(SinglecurrentID);
 }
 
+
+/**
+ * enable play button to play music
+ */
 function playTheme() {
     audioTheme.play();
 }
 
+
+/**
+ * enable butten to pause music
+ */
 function stopTheme() {
     audioTheme.pause();
 }
-
-
 
 
 
@@ -364,13 +483,9 @@ function stopTheme() {
         config);
 } */
 
+
 /**
- * todo: first letter pokemonName uppercase, helpful tutorial> https://www.geeksforgeeks.org/how-to-make-first-letter-of-a-string-uppercase-in-javascript/
- * Todo: Show in for-loop 1)Name 2)Type 3)IMG 4)ID done
- 
- * Todo change Colors according to the type: 1) Grass 2) Fire 3) Water 4) Bug 5) Normal 6) Poison 7) Electric 8) Ground 9) Fairy 10)Fighting 11) Psychic 12) Rock 13) Ghost 14) Ice 15) Dragon Done
- * Todo: add background-music pokemon theme
- * 
- * 
- * 
+ * todo:    1) fix search function
+ * todo:    2) animate first chart of base stats at first clicked pokemon after newLoad of site
+ * todo:    3) fix onscroll Lazyloading function
  */

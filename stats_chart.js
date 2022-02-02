@@ -1,3 +1,6 @@
+/**
+ * this script creates the dataset and the configuration of the animated radar-chart used for pokemons base-stats
+ */
 
 
 const data = {
@@ -35,6 +38,10 @@ const data = {
   }]
 };
 
+
+/**
+ * configuration of chart
+ */
 const config = {
   type: 'radar',
   data: data,
