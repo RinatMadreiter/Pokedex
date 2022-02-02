@@ -106,17 +106,7 @@ async function loadPokemon() {
     }
 }
 
-/**
- * load 151 Pokemon Names ans save in  Array: "allPokemonNames"
- */
-async function loadSaveAllPokemonNames() {
-    for (k = 1; k <= amountsOfAllPokemons; k++) {
-        let urlNames = `https://pokeapi.co/api/v2/pokemon/${k}`;
-        let responseNames = await fetch(urlNames);
-        currentPokemonName = await responseNames.json();
-        allPokemonNames.push(currentPokemonName['name']);
-    }
-}
+
 
 
 /**
@@ -143,6 +133,18 @@ async function loadSaveAllPokemonNames() {
     }
 }
  */
+
+/**
+ * load 151 Pokemon Names ans save in  Array: "allPokemonNames" for search function
+ */
+/* async function loadSaveAllPokemonNames() {
+    for (k = 1; k <= amountsOfAllPokemons; k++) {
+        let urlNames = `https://pokeapi.co/api/v2/pokemon/${k}`;
+        let responseNames = await fetch(urlNames);
+        currentPokemonName = await responseNames.json();
+        allPokemonNames.push(currentPokemonName['name']);
+    }
+} */
 
 
 /**
