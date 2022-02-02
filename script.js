@@ -11,7 +11,7 @@ let clickedPokemonSpecialdefense;
 let clickedPokemonSpeed;
 let i = 1;
 let iPlus20 = (i + 20);
-let scrollAmountTrigger = 200;
+let scrollAmountTrigger = 100;
 let amountsOfAllPokemons = 151;
 let allPokemonNames = [];
 let typedSearch;
@@ -177,7 +177,6 @@ function styleAllPokemon(i, currentPokemon) {
  * lazy load and render 21 Pokemons at "onscroll"
  */
 function lazyLoading() {
-
     console.log('lazyLoad Function called\n' + 'i=' + i)
     if (document.documentElement.scrollTop > scrollAmountTrigger) {
         let currentBodyHeight = document.body.scrollHeight;
