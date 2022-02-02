@@ -11,7 +11,7 @@ let clickedPokemonSpecialdefense;
 let clickedPokemonSpeed;
 let i = 1;
 let iPlus20 = (i + 20);
-let scrollAmountTrigger = 100;
+let scrollAmountTrigger = 50;
 let amountsOfAllPokemons = 151;
 let allPokemonNames = [];
 let typedSearch;
