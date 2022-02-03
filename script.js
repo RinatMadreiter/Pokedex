@@ -17,6 +17,7 @@ let allPokemonNames = [];
 let typedSearch;
 let searchNamesArray = [];
 let loading = false;
+let allPokemons = [];
 /**
  * JSON variable which stores all colors for type-specific background color change of pokemons
  */
@@ -102,6 +103,7 @@ async function loadPokemon() {
         let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         let response = await fetch(url);
         currentPokemon = await response.json(); //response as JSON
+        allPokemons.push(currentPokemon);
         renderAllPokemon(i, currentPokemon);
         styleAllPokemon(i, currentPokemon);
     }
@@ -260,10 +262,13 @@ function loadSinglePokemonStatsVariables(clickedPokemon) {
 
 /**
  * animate Pokemon when clicked to preview
- * @param {*} clickedPokemon 
+ * @param {number} clickedPokemon - ID of clicked Pokemon
  */
-function displayKlickedPokemon(clickedPokemon) {
-    loadClickedPokemonAsJson(clickedPokemon);
+function displayClickedPokemon(clickedPokemon) {
+    // loadClickedPokemonAsJson(clickedPokemon);
+    let pokemon = allPokemons.find( p => p.id == clickedPokemon);
+    renderSinglePokemonUpperPart(pokemon);
+    renderSinglePokemonLowerPart(pokemon);
     document.getElementById('single-pokemon-view').classList.remove('d-none');
     document.getElementById('single-pokemoncard-view').classList.remove('animate-zoom-out');
     document.getElementById('single-pokemoncard-view').classList.add('animate-zoom-in');
@@ -308,7 +313,7 @@ function addBaseStatsToChart() {
 function createPokemonCardHTML(currentNumber) {
     let pokemonCardsContainer = document.getElementById('pokemon-cards-container');
     pokemonCardsContainer.innerHTML += `
-    <div class="pokemon-card" id="pokemon-card${currentNumber}" onclick="displayKlickedPokemon(${currentNumber})">
+    <div class="pokemon-card" id="pokemon-card${currentNumber}" onclick="displayClickedPokemon(${currentNumber})">
         <div class="pokemon-id-number" id= "pokemon-id${currentNumber}"></div>
         <div class="pokemon-name" id="pokemonName${currentNumber}">Name</div>
         <div class="pokemon-img-type-container">
