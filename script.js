@@ -16,6 +16,7 @@ let amountsOfAllPokemons = 151;
 let allPokemonNames = [];
 let typedSearch;
 let searchNamesArray = [];
+let loading = false;
 /**
  * JSON variable which stores all colors for type-specific background color change of pokemons
  */
@@ -180,11 +181,12 @@ function styleAllPokemon(i, currentPokemon) {
  */
 function lazyLoading() {
     console.log('lazyLoad Function called\n' + 'i=' + i)
-    if (document.documentElement.scrollTop > scrollAmountTrigger) {
+    if (document.documentElement.scrollTop > scrollAmountTrigger && !loading) {
+        loading = true;
         let currentBodyHeight = document.body.scrollHeight;
         scrollAmountTrigger = currentBodyHeight - 200;
         iPlus20 += 20;
-        loadPokemon();
+        loadPokemon().then( ()=> loading = false);
         console.log('scrollAmountTrigger is:' + scrollAmountTrigger);
         console.log(document.documentElement.scrollTop);
     }
