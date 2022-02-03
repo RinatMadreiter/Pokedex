@@ -73,6 +73,12 @@ const config = {
           font: {
             size: 12
           }
+        },
+        grid: {
+          color: 'lightgrey'
+        },
+        angleLines: {
+          color: 'lightgrey'
         }
       }
     }

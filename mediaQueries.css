@@ -27,7 +27,7 @@
     #myChart {
         height: 55vh !important;
         width: auto !important;
-        right: 21vw;
+        right: calc(100% - 91%);
         top: 49px;
     }
 
@@ -41,8 +41,7 @@
 
 @media (min-width: 500px) and (max-width: 599px) and (orientation: portrait) {
     #myChart {
-        right: 14vw;
-        height: 59vh !important;
+        right: calc(100% - 96vw);
         width: auto !important;
         top: 36px;
     }
@@ -82,9 +81,8 @@
     }
 
     #myChart {
-        right: 11vw;
+        right: calc(100% - 95vw);
         top: 34px;
-        height: 51vh !important;
         width: auto !important;
     }
 
@@ -125,7 +123,6 @@
     #myChart {
         right: 4vw;
         top: 34px;
-        height: 48vh !important;
         width: auto !important;
     }
 
@@ -166,7 +163,6 @@
     #myChart {
         right: 2vw;
         top: 34px;
-        height: 45vh !important;
         width: auto !important;
     }
 
@@ -236,6 +232,10 @@
 }
 
 @media only screen and (orientation: landscape) {
+    .single-pokemon-view {
+        width: 100vw;
+    }
+
     .single-pokemoncard-view {
         width: 100%;
         height: 100%;
@@ -256,7 +256,7 @@
 
     .info-container-lower-part {
         height: 100vh;
-        width: 50vw;
+        width: 54vw;
         margin-top: 0;
         padding-bottom: 0;
         margin-left: -40px;
@@ -269,6 +269,30 @@
 
     #myChart {
         top: 0;
-        padding: 15px;
+        padding: 25px;
+        /* height: calc(100vh - 20px) !important; */
+    }
+}
+
+@media only screen and (orientation: landscape) and (min-width: 1000px) {
+
+    .single-pokemon-view {
+        width: 100vw;
+    }
+
+    .single-pokemon-upper-part img {
+        width: 250px;
+        height: 237px;
+        margin-top: 25vh;
+    }
+
+    .single-pokemon-upper-part {
+        background-size: 279px;
+        background-position: 49% 53%;
+    }
+
+    #myChart {
+        padding-bottom: 100px;
+        height: calc(100vh - 10px);
     }
 }
