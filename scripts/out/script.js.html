@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: script.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: script.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * define variables and typecolors
  */
 let currentPokemon;
@@ -99,7 +127,7 @@ audioTheme.volume = 0.1;
  */
 async function loadPokemon() {
 
-    for (; i <= iPlus20; i++) {
+    for (; i &lt;= iPlus20; i++) {
         let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         let response = await fetch(url);
         currentPokemon = await response.json(); //response as JSON
@@ -119,7 +147,7 @@ async function loadPokemon() {
 /* function search() {
     typedSearch = document.getElementById('searchField').value.toLowerCase();
     console.log('typedSearch is: ' + typedSearch);
-    for (let index = 0; index < allPokemonNames.length; index++) {
+    for (let index = 0; index &lt; allPokemonNames.length; index++) {
         if (allPokemonNames[index].includes(typedSearch, index)) {
             if (!searchNamesArray.includes(allPokemonNames[index])) {
                 searchNamesArray.push(allPokemonNames[index])
@@ -141,7 +169,7 @@ async function loadPokemon() {
  * load 151 Pokemon Names ans save in  Array: "allPokemonNames" for search function
  */
 /* async function loadSaveAllPokemonNames() {
-    for (k = 1; k <= amountsOfAllPokemons; k++) {
+    for (k = 1; k &lt;= amountsOfAllPokemons; k++) {
         let urlNames = `https://pokeapi.co/api/v2/pokemon/${k}`;
         let responseNames = await fetch(urlNames);
         currentPokemonName = await responseNames.json();
@@ -183,7 +211,7 @@ function styleAllPokemon(i, currentPokemon) {
  */
 function lazyLoading() {
     console.log('lazyLoad Function called\n' + 'i=' + i)
-    if (document.documentElement.scrollTop > scrollAmountTrigger && !loading) {
+    if (document.documentElement.scrollTop > scrollAmountTrigger &amp;&amp; !loading) {
         loading = true;
         let currentBodyHeight = document.body.scrollHeight;
         scrollAmountTrigger = currentBodyHeight - 200;
@@ -313,18 +341,18 @@ function addBaseStatsToChart() {
 function createPokemonCardHTML(currentNumber) {
     let pokemonCardsContainer = document.getElementById('pokemon-cards-container');
     pokemonCardsContainer.innerHTML += `
-    <div class="pokemon-card" id="pokemon-card${currentNumber}" onclick="displayClickedPokemon(${currentNumber})">
-        <div class="pokemon-id-number" id= "pokemon-id${currentNumber}"></div>
-        <div class="pokemon-name" id="pokemonName${currentNumber}">Name</div>
-        <div class="pokemon-img-type-container">
-            <div class="type-container" >
-                <span id="type${currentNumber}"></span>
-            </div>
-            <div class="img-container">
-                <img id="pokemonMainImg${currentNumber}" class="pokemon-img"></img>
-            </div>
-        </div>
-    </div>`;
+    &lt;div class="pokemon-card" id="pokemon-card${currentNumber}" onclick="displayClickedPokemon(${currentNumber})">
+        &lt;div class="pokemon-id-number" id= "pokemon-id${currentNumber}">&lt;/div>
+        &lt;div class="pokemon-name" id="pokemonName${currentNumber}">Name&lt;/div>
+        &lt;div class="pokemon-img-type-container">
+            &lt;div class="type-container" >
+                &lt;span id="type${currentNumber}">&lt;/span>
+            &lt;/div>
+            &lt;div class="img-container">
+                &lt;img id="pokemonMainImg${currentNumber}" class="pokemon-img">&lt;/img>
+            &lt;/div>
+        &lt;/div>
+    &lt;/div>`;
 }
 
 
@@ -349,7 +377,7 @@ function renderPokemonInfo(currentNumber, currentPokemon) {
 function styleCardAccordingToType(currentNumber) {
     let currentType = document.getElementById(`type${currentNumber}`);
     let currentPokemonCard = document.getElementById(`pokemon-card${currentNumber}`);
-    for (let index = 0; index < typeColors.length; index++) {
+    for (let index = 0; index &lt; typeColors.length; index++) {
         if (currentType.innerHTML == typeColors[index]['type']) {
             currentPokemonCard.style.backgroundColor = typeColors[index]['color'];
         }
@@ -363,7 +391,7 @@ function styleCardAccordingToType(currentNumber) {
 function styleCardAccordingToTypeSingle() {
     let currentType = document.getElementById(`single-pokemoncard-view-type`);
     let clickedPokemonUpperPart = document.getElementById(`single-pokemon-upper-part`);
-    for (let index = 0; index < typeColors.length; index++) {
+    for (let index = 0; index &lt; typeColors.length; index++) {
         if (currentType.innerHTML == typeColors[index]['type']) {
             clickedPokemonUpperPart.style.backgroundColor = typeColors[index]['color'];
         }
@@ -451,7 +479,7 @@ function updateSingleID(SinglecurrentID) {
  */
 function addLeadingZerosToID(num, size) {
     num = num.toString();
-    while (num.length < size) num = "0" + num;
+    while (num.length &lt; size) num = "0" + num;
     return num;
 }
 
@@ -495,4 +523,26 @@ function stopTheme() {
 /**
  * todo:    1) fix search function
  * todo:    2) animate first chart of base stats at first clicked pokemon after newLoad of site
- */
+ */</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addBaseStatsToChart">addBaseStatsToChart</a></li><li><a href="global.html#addLeadingZerosToID">addLeadingZerosToID</a></li><li><a href="global.html#audioTheme">audioTheme</a></li><li><a href="global.html#capitalizeFLetterName">capitalizeFLetterName</a></li><li><a href="global.html#capitalizeFLetterNameSinglePokemon">capitalizeFLetterNameSinglePokemon</a></li><li><a href="global.html#capitalizeFLetterType">capitalizeFLetterType</a></li><li><a href="global.html#capitalizeFLetterTypeSinglePokemon">capitalizeFLetterTypeSinglePokemon</a></li><li><a href="global.html#closeClickedPokemon">closeClickedPokemon</a></li><li><a href="global.html#config">config</a></li><li><a href="global.html#createPokemonCardHTML">createPokemonCardHTML</a></li><li><a href="global.html#currentPokemon">currentPokemon</a></li><li><a href="global.html#data">data</a></li><li><a href="global.html#displayClickedPokemon">displayClickedPokemon</a></li><li><a href="global.html#hideSinglePokemonView">hideSinglePokemonView</a></li><li><a href="global.html#lazyLoading">lazyLoading</a></li><li><a href="global.html#loadClickedPokemonAsJson">loadClickedPokemonAsJson</a></li><li><a href="global.html#loadPokemon">loadPokemon</a></li><li><a href="global.html#loadSinglePokemonStatsVariables">loadSinglePokemonStatsVariables</a></li><li><a href="global.html#playTheme">playTheme</a></li><li><a href="global.html#renderAllPokemon">renderAllPokemon</a></li><li><a href="global.html#renderPokemonInfo">renderPokemonInfo</a></li><li><a href="global.html#renderSinglePokemonID">renderSinglePokemonID</a></li><li><a href="global.html#renderSinglePokemonLowerPart">renderSinglePokemonLowerPart</a></li><li><a href="global.html#renderSinglePokemonStats">renderSinglePokemonStats</a></li><li><a href="global.html#renderSinglePokemonUpperPart">renderSinglePokemonUpperPart</a></li><li><a href="global.html#stopTheme">stopTheme</a></li><li><a href="global.html#styleAllPokemon">styleAllPokemon</a></li><li><a href="global.html#styleCardAccordingToType">styleCardAccordingToType</a></li><li><a href="global.html#styleCardAccordingToTypeSingle">styleCardAccordingToTypeSingle</a></li><li><a href="global.html#typeColors">typeColors</a></li><li><a href="global.html#updateID">updateID</a></li><li><a href="global.html#updateSingleID">updateSingleID</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Fri Feb 04 2022 12:33:51 GMT+0100 (Mitteleuropäische Normalzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
