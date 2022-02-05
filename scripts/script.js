@@ -199,7 +199,7 @@ function lazyLoading() {
  * load clicked Pokemon-Card from API and render it
  * @param {number} clickedPokemon - pokemons index in allPokemons array
  */
-async function loadClickedPokemonAsJson(clickedPokemon) {
+/* async function loadClickedPokemonAsJson(clickedPokemon) {
     let j = clickedPokemon;
     let url = `https://pokeapi.co/api/v2/pokemon/${j}`;
     let response = await fetch(url);
@@ -207,7 +207,7 @@ async function loadClickedPokemonAsJson(clickedPokemon) {
     renderSinglePokemonUpperPart(clickedPokemon);
     renderSinglePokemonLowerPart(clickedPokemon);
 }
-
+ */
 
 /**
  * render clicked Pokemons upper Part
@@ -269,6 +269,7 @@ function displayClickedPokemon(clickedPokemon) {
     let pokemon = allPokemons.find( p => p.id == clickedPokemon);
     renderSinglePokemonUpperPart(pokemon);
     renderSinglePokemonLowerPart(pokemon);
+    document.body.style = 'overflow:hidden;';
     document.getElementById('single-pokemon-view').classList.remove('d-none');
     document.getElementById('single-pokemoncard-view').classList.remove('animate-zoom-out');
     document.getElementById('single-pokemoncard-view').classList.add('animate-zoom-in');
@@ -281,6 +282,7 @@ function displayClickedPokemon(clickedPokemon) {
 function closeClickedPokemon() {
     document.getElementById('single-pokemoncard-view').classList.remove('animate-zoom-in');
     document.getElementById('single-pokemoncard-view').classList.add('animate-zoom-out');
+    document.body.style = 'overflow:visible;';
     setTimeout(hideSinglePokemonView, 480);
 }
 
