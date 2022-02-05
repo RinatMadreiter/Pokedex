@@ -266,6 +266,7 @@ header {
 }
 
 #searchField {
+    display: none;
     border-radius: 8px;
     border-color: lightblue;
     padding: 10px;
