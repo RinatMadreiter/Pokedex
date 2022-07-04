@@ -140,24 +140,6 @@ async function loadPokemon() {
 
 
 
-/**
- * prototype search-function in development
- * todo: needs to be implemented and updated
- */
-/* function search() {
-    typedSearch = document.getElementById('searchField').value.toLowerCase();
-    console.log('typedSearch is: ' + typedSearch);
-    for (let index = 0; index &lt; allPokemonNames.length; index++) {
-        if (allPokemonNames[index].includes(typedSearch, index)) {
-            if (!searchNamesArray.includes(allPokemonNames[index])) {
-                searchNamesArray.push(allPokemonNames[index])
-            }
-        }
-    }
-    console.log('searchNamesArray is: ' + searchNamesArray);
-} */
-
-
 /* function checkIfIncluded(namesMatchingToSearch) {
      if (allPokemonNames.includes(namesMatchingToSearch)) {
         return namesMatchingToSearch
@@ -210,15 +192,12 @@ function styleAllPokemon(i, currentPokemon) {
  * lazy load and render 21 Pokemons at "onscroll"
  */
 function lazyLoading() {
-    console.log('lazyLoad Function called\n' + 'i=' + i)
     if (document.documentElement.scrollTop > scrollAmountTrigger &amp;&amp; !loading) {
         loading = true;
         let currentBodyHeight = document.body.scrollHeight;
         scrollAmountTrigger = currentBodyHeight - 200;
         iPlus20 += 20;
         loadPokemon().then( ()=> loading = false);
-        console.log('scrollAmountTrigger is:' + scrollAmountTrigger);
-        console.log(document.documentElement.scrollTop);
     }
 }
 
@@ -511,19 +490,7 @@ function stopTheme() {
 }
 
 
-
-/* function renderChart() {
-    console.log('renderChartfunction')
-    const myChart = new Chart(
-        document.getElementById('myChart'),
-        config);
-} */
-
-
-/**
- * todo:    1) fix search function
- * todo:    2) animate first chart of base stats at first clicked pokemon after newLoad of site
- */</code></pre>
+</code></pre>
         </article>
     </section>
 
